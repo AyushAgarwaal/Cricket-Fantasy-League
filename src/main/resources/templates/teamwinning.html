@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Select winning team</title>
+	<link rel="stylesheet" type="text/css" href="/CSS/teamwin.css">
+	<!-- Add this to the head section of your HTML file -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="/CSS/adminprofile.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/CSS/admin.css">
+	
+
+
+
+</head>
+
+<body>
+	<nav style="
+    display: flex;
+    flex-direction: row-reverse;">
+		<div class="navbar">
+			<a th:href="@{/admin}">Home</a>
+			<a href="adminProfile">Refresh</a>
+			<a href="index">Logout</a>
+		</div>
+	</nav>
+
+	<div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top sidebar-side">
+		<a href="#" class="navbar-brand text-white mx-auto text-center bottom-border py-3 mb-4 d-block"><b> ADMIN
+			</b></a>
+		<div class="circle">
+			<img src="/images/userimage.png" alt="" height="75x" width="200px" style="border-radius: 50%;" />
+			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+				style="enable-background:new -580 439 577.9 194;" xml:space="preserve">
+				<circle cx="50" cy="50" r="40" />
+			</svg>
+		</div>
+		<ul class="navbar-nav mt-4 flex-column ">
+			<li class="nav-item ">
+				<a href="admin" class="nav-link text-white p-2 mb-2"><i
+						class="fas fa-home fa-lg mr-3 text-white"></i><b>DashBoard</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="adminProfile" class="nav-link text-white p-2 mb-2 sidebar-link"><i
+						class="fas fa-user fa-lg mr-3 text-white"></i><b>Profile</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="tournaments" class="nav-link text-white p-2 mb-2 sidebar-link"><b>Tournaments</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="matches" class="nav-link p-2 mb-2 sidebar-link text-white"><b>Matches</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="teams" class="nav-link text-white p-2 mb-2 sidebar-link"><b>Teams</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="userManage" class="nav-link text-white p-2 mb-2 sidebar-link"><b>User Manage</b></a>
+			</li>
+			<li class="nav-item">
+				<a href="teamwinning" class="nav-link text-white p-2 mb-2 sidebar-link current"><b>Select winning
+						team</b></a>
+			</li>
+
+
+		</ul>
+	</div>
+
+	<center>
+		<h1>Select Teams</h1>
+		<div>
+			<form th:action=@{/winning} th:object="${data}" id="userSelectionForm" method="get">
+				<label for="tournament">Select a tournament:</label>
+				<select id="tournament" name="tournament" onchange="selects(this)">
+					<option value="tournament">Select a tournament:</option>
+					<option th:each="tour:${tour}" th:text="${tour.name}" th:value="${tour.tour_id}"></option>
+
+				</select>
+			</form>
+
+			<form id="matchForm" class="hidden">
+				<label for="match">Select a match:</label>
+				<select id="match" name="matchname" onchange="selectsTeams(this)">
+					<option value="">Select a match:</option>
+					<option th:each="match:${match}" th:text="${match.name}" th:value="${match.tour_id}"></option>
+
+				</select>
+
+
+			</form>
+			<form id="teamForm" class="hidden" th:action=@{/winning} th:object="${data}" method="get">
+				<label for="team">Select a team:</label>
+				<select id="team" name="team">
+					<option value="team">Select a team:</option>
+					<option th:each="team:${team}" th:text="${team.name}" th:value="${team.id}"></option>
+
+
+				</select>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</center>
+	</div>
+	<script th:inline="javascript">
+
+		// Get the tournament select element
+		var tournamentSelect = document.getElementById('tournament');
+
+		// Get the match form and team form elements
+		var matchForm = document.getElementById('matchForm');
+		var teamForm = document.getElementById('teamForm');
+
+		// When the tournament select element changes, show the match form
+		tournamentSelect.addEventListener('change', function () {
+			if (tournamentSelect.value !== '') {
+				matchForm.classList.remove('hidden');
+			} else {
+				matchForm.classList.add('hidden');
+				teamForm.classList.add('hidden');
+			}
+		});
+
+		// When the match form is submitted, show the team form
+		matchForm.addEventListener('change', function (e) {
+			e.preventDefault();
+			if (match.value !== '') {
+				teamForm.classList.remove('hidden');
+			} else {
+				teamForm.classList.add('hidden');
+			}
+		})
+
+		//for match dropdown
+		function selects(dropdown) {
+			var tournamentSelected = dropdown.options[dropdown.selectedIndex].value;
+			console.log(tournamentSelected);
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host;
+			var options = '';
+			console.log(baseUrl + "/matchesByTournament?tournament=" + tournamentSelected);
+			$.ajax({
+				type: "GET",
+				url: baseUrl + "/matchesByTournament?tournament=" + tournamentSelected,
+
+				success: function (data) {
+					// Handle success response here
+
+					if (data.length > 0) {
+						$(data).each(function (index) {
+							options += '<option value="' + data[index].id + '" selected="selected">' + data[index].name + '</option>';
+						});
+					}
+
+					$('#match').append(options);
+					$('#match').trigger("chosen:updated");
+					$('#match').trigger("liszt:updated");
+
+
+				},
+				error: function (xhr, status, error) {
+					// Handle error response here
+				}
+			});
+		}
+
+		//for teams dropdown
+		function selectsTeams(dropdown) {
+			var teamSelected = dropdown.options[dropdown.selectedIndex].value;
+			console.log(teamSelected);
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host;
+			var options = '';
+			console.log(baseUrl + "/teamsByMatches?match=" + teamSelected);
+			$.ajax({
+				type: "GET",
+				url: baseUrl + "/teamsByMatches?match=" + teamSelected,
+
+				success: function (data) {
+					// Handle success response here
+					console.log(data);
+					if (data.length > 0) {
+						$(data).each(function (index) {
+							options += '<option value="' + data[index].id + '" selected="selected">' + data[index].name + '</option>';
+						});
+					}
+
+					$('#team').append(options);
+					$('#team').trigger("chosen:updated");
+					$('#team').trigger("liszt:updated");
+
+
+				},
+				error: function (xhr, status, error) {
+					// Handle error response here
+				}
+			});
+		} 
+	</script>
+
+</body>
+
+</html>

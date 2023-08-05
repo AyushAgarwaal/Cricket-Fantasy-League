@@ -1,0 +1,415 @@
+@font-face { font-family: 'nowayregular'; src: url('../public/static_fonts/noway-regular-webfont.eot'); src: url('../public/static_fonts/noway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../public/static_fonts/noway-regular-webfont.woff2') format('woff2'),
+  url('../../public/static_fonts/noway-regular-webfont.woff') format('woff'),
+  url('../../public/static_fonts/noway-regular-webfont.ttf') format('truetype'),
+  url('../../public/static_fonts/noway-regular-webfont.svg#nowayregular') format('svg'); font-weight: normal; font-style: normal;}
+@font-face {
+  font-family: 'nowaymedium';
+  src: url('../../public/static_fonts/noway-medium-webfont.eot');
+  src: url('../../public/static_fonts/noway-medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../../public/static_fonts/noway-medium-webfont.woff2') format('woff2'),
+       url('../../public/static_fonts/noway-medium-webfont.woff') format('woff'),
+       url('../../public/static_fonts/noway-medium-webfont.ttf') format('truetype'),
+       url('../../public/static_fonts/noway-medium-webfont.svg#nowaymedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .common_header{
+      height: 72px;
+      line-height: 72px;
+      background: #C61D23;
+    }
+    .static_container{
+      max-width: 980px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .d11_logo{
+      vertical-align: middle;
+    }
+   
+    .bottom_content_box{
+      display: grid;
+      grid-template-columns: 2fr 1.3fr;
+    }
+    .pkl_player_list{
+      width: 100%;
+    } 
+    
+    
+    .pkl_player_list tr td{
+      font-size: 12px;
+      color: #323232;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+
+    }
+    .pkl_player_list.stats tbody tr td{
+      width: 50%;
+    }
+    .pkl_player_list_heading{
+      font-size: 17px;
+      font-weight: 700;
+      color: #323232;
+      margin-top: 28px;
+      margin-bottom: 18px;
+    }
+    .pkl_team_shedule{
+      background: #FAFAFA;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .pkl_team_shedule h2{
+      text-align: left;
+      font-size: 22px;
+      color: #000;
+    }
+    .pkl_team_shedule table{
+      width: 100%;
+    }
+    .pkl_team_shedule table thead{
+      font-weight: 700;
+      background: #dedede;
+    }
+    .pkl_team_shedule table tr td{
+      font-size: 12px;
+      line-height: 28px;
+      padding-left: 5px;
+      padding-right: 5px;
+
+    }
+    .pkl_team_shedule table tbody tr:nth-child(2n){
+          background: #e8e8e8;
+    }
+    .pkl_team_shedule table, .pkl_team_shedule th, .pkl_team_shedule td {
+      border: 1px solid #9a9a9a;
+    }
+    table.pkl_player_list, .pkl_player_list th, .pkl_player_list td {
+      border: 1px solid #9a9a9a;
+    }
+    .left_static_content_box{
+      padding-right: 30px;
+      display: none;
+    }
+
+    .left_static_content_box_new{
+      padding-right: 30px;
+    }
+    .static_content h1,
+    .static_content h3{
+      font-weight: 700;
+      font-size: 28px;
+      color: #323232;
+      margin-bottom: 10px;
+    }
+    .static_content h2{color: #323232;}
+    .static_content ul{margin-top: 0;}
+    .static_content p{
+      font-weight: 500;
+      font-size: 14px;
+      color: #323232;
+      line-height: 26px;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+    .static_content p a, .static_content li a{
+      text-decoration: none;
+    }
+    .static_content ul li, .static_content ol li{
+      font-weight: 500;
+      font-size: 14px;
+      color: #323232;
+      line-height: 26px;
+    }
+    .banner{
+      margin-top: 25px;
+    }
+    .banner img{ width: 100%;display: block; }
+    .power_sg{
+      font-size: 12px;
+      color: #A0A0A0;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+    .power_sg img{
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    .other_matches{
+      background: #FAFAFA;
+      padding-top: 15px;
+    }
+    .other_matches h3{
+      text-align: center;
+      margin: 0px;
+    }
+    .match_list_container{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-rows: auto;
+    }
+    .match_list{
+      padding-left: 10px;
+    }
+    .match_list ul{
+      list-style: none;
+    }
+    .match_list ul li a, .cricket-player_container ul li a{
+      color: #0078FF;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 28px;
+      font-weight: 500;
+    }
+    .cricket-player_container{margin:15px;}
+
+    .ipl_matches .match_list ul li a{
+      font-size: 11px;
+    }
+
+    .ipl_matches .match_list ul{
+      padding-left: 0px;
+    }
+
+    #breadcrumb{
+      font-size: 13px;
+      margin-bottom: 12px;
+      margin-top: 20px;
+      padding-left: 0px;
+      list-style: none;
+    }
+    #breadcrumb li{
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    #breadcrumb a[href]{
+      color: #2b3fad; 
+      border-bottom: 1px solid #2b3fad;
+      text-decoration: none;
+    }
+    #breadcrumb a{
+      text-transform: capitalize;
+    }
+    .no_bg{
+      background: none;
+    }
+
+    .last_updated_box{
+      background: #FAFAFA;
+      font-size: 12px;
+      font-weight: bold;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: right;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .last_updated_box.no_bg{
+      background: none;
+    }
+    table.player_info {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom:15px;
+    }
+
+    table.player_info,
+    table.player_info th,
+    table.player_info td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      font-weight: 500;
+      font-size: 14px;
+      color:#323232;
+
+    }
+
+    table.player_info td {
+      padding: 10px 15px;
+    }
+    .cricket-player_container ul{list-style: none;margin:0;padding:0;display: grid;grid-template-columns:1fr 1fr 1fr 1fr}
+    .career-stats{overflow-x:auto;margin-bottom: 10px;} 
+    .career-stats table{width: 100%;}
+    .career-stats table, .career-stats table th, .career-stats table td{border: 1px solid black;
+      border-collapse: collapse;}
+    .career-stats td {
+      overflow: hidden;
+      padding: 10px 15px;
+      vertical-align: middle;
+      font-size: 14px;
+      overflow-wrap: break-word;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color:#323232;
+    }
+    .career-stats thead td, .career-stats tfoot td{font-weight: 700;}
+    .career-stats thead{font-weight: bold;}
+    h4.semi_title{margin-bottom: 10px;font-weight: 20px;}
+    .bestIndBatsmen{display: grid;grid-template-columns:1fr 1fr;margin-bottom: 15px;}
+    .bestIndBatsmen a{text-decoration: none;}
+    .career-stats table{margin-bottom: 15px;}
+    .membership{width: 100% !important;float:none;}
+    .membership h3{margin-bottom: 14px;}
+    .mb44{margin-bottom: 30px;}
+    .membership h3 a{color: #fff; text-decoration: none;outline: none;}
+    @media (max-width:766px){
+      
+      .static_content{padding-left: 20px; padding-right: 20px;}
+      .match_list{padding-left: 0px;}
+      .common_header{text-align: center;}
+      .static_content h1, .static_content h3{font-size: 21px;}
+      .other_matches h3{font-size: 14px;}
+      .match_list_container{margin-top: 10px; padding-bottom: 10px;grid-template-columns: 1fr;}
+      .match_list ul, .ipl_matches .match_list ul{margin: 0px; padding-left: 30px;}
+      .bottom_content_box{ grid-template-columns: 1fr;}
+      .left_static_content_box{padding-right: 0px;}
+      .pkl_team_shedule table{width: 940px;}
+      .pkl_team_shedule{ padding-left: 20px; padding-right: 20px;}
+      .pkl_team_shedule_inner{overflow-x: scroll;}
+      .cricket-player_container ul{grid-template-columns:1fr 1fr 1fr}
+      .bestIndBatsmen{grid-template-columns:1fr;}
+      .bestIndBatsmen table{margin-bottom: 25px;}
+      .career-stats table{width: 700px;}
+    }
+
+    /* footer css starts here */
+    .footer_top{background: #373737; color: #fff; padding-top: 62px;}
+    .footer_inner{display: grid; /*grid-template-columns: 1.5fr 1fr;*/ grid-template-columns: 3fr 1fr;  grid-template-rows: auto;}
+    .footer_social ul{margin-top: 12px; margin-bottom: 0px; padding-left: 0px; display: inline-block;}
+    .footer_social ul li{float: left; list-style: none;margin-right: 10px;}
+    .footer_social ul li:last-child{margin-right: 0px;}
+    .col2{/*display: grid;*/ /*grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));*/ /*grid-template-columns: 1fr 1.5fr; grid-template-rows: auto;*/}
+    .col1{display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); grid-template-rows: auto; border-right: 1px solid #828282;}
+    .right_col1{display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); grid-template-rows: auto;}
+    .left_link_list ul, .right_link_list ul{padding-left: 0px; list-style: none; margin-top: 0px; margin-bottom: 0px; display: inline-block;}
+    .left_link_list ul li a, .right_link_list ul li a{font-size: 14px; font-weight: 600; font-family: 'nowayregular'; font-style: normal; font-stretch: normal; letter-spacing: normal; text-align: left; color: #ffffff; text-decoration: none;margin-bottom: 25px; display: inline-block;}
+    .membership{padding-left: 20px; text-align: center;}
+    .membership ul{list-style: none; margin-top: 0px; margin-bottom: 0px; padding-left: 0px; display: inline-block;}
+    .membership ul li{float: left; margin-right: 17px;}
+    .membership ul li:last-child{margin-right: 0px;}
+    .membership h3, .our_apps h3,  .sports_partners h3{font-family: 'nowayregular'; font-size: 12px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #ffffff; margin-top: 0px; margin-bottom: 27px;}
+    .sports_partners h3{text-align: center;}
+    .office_address h3{font-family: 'nowayregular'; font-size: 14px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; color: #ffffff; margin-top: 0px; text-align: center;}
+    .app_list { text-align: left; padding-left: 0; margin: 0; list-style: none;}
+    .app_list li {margin-bottom: 10px;}
+    .app_list li a {font-size: 16px;color: #fff;font-family: Arial; text-decoration: none;}
+    .ios a:before { width: 13px; background: url(https://d13ir53smqqeyp.cloudfront.net/d11-static-pages/images/apple-icon.png) no-repeat; background-size: 100%;}
+    .android a:before { width: 14px; background: url(https://d13ir53smqqeyp.cloudfront.net/d11-static-pages/images/android-icon.png) no-repeat; background-size: 100%;}
+    .android a:before, .ios a:before { margin-right: 8px; float: left; content: ""; height: 16px; display: inline-block;}
+    .footer_inner{padding-bottom: 29px;border-bottom: 1px solid #828282; margin-bottom: 30px;}
+    .our_apps{ padding-left: 30px;}
+    .office_address{padding-top: 16px; text-align: center; padding-bottom: 15px;}
+    .office_address h3{margin-bottom: 8px;}
+    .address{ font-family: Helvetica;font-size: 14px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: 1.57; letter-spacing: normal; color: #ffffff; padding: 0 10px;}
+    .footer_bottom{ background: #282828; padding-top: 25px; padding-bottom: 25px; text-align: center;}
+    .footer_bottom ul {margin-top: 0px; margin-bottom: 0px; display: inline-block; list-style: none; padding-left: 0px; display: inline-block;}
+    .footer_bottom ul li{float: left;}
+    .footer_bottom ul li a{text-decoration: none;font-size: 16px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: normal; text-align: center; color: #ffffff; padding-right: 40px; margin-right: 40px; border-right: 1px solid #828282;}
+    .footer_bottom ul li:last-child a{ margin-right: 0px; padding-right: 0px; border-right: 0px;}
+    .sports_partners{padding-left: 10px; text-align: center;}
+    .sports_partners ul li{margin-right: 60px; text-align: center;}
+    .sports_partners ul li img{display: block;}
+    .sports_partners ul li span{ display: inline-block; vertical-align: middle; margin-right: 23px;}
+    .sports_partners ul li:last-child{margin-right: 0px}
+    .sports_partners ul li span:last-child{margin-right: 0px;}
+    .step_inner_wrapper{margin-top: 30px;}
+    .more_link{display: none;}
+    .footer_container{max-width: 1000px; width: 100%; margin: 0 auto;}
+    .sports_partners ul{display: flex; justify-content: center; align-items: center; padding: 0px; margin: 0px; list-style: none; /*flex-direction: row; align-items: center; justify-content: center; display: flex;*/}
+    .disclaimer_box {padding-bottom: 15px;}
+    .disclaimer_box h3 { text-align: center; margin-bottom: 4px; font-size: 10px; color: #929292; font-weight: normal; font-family: Montserrat; margin-top: 0px;}
+    .disclaimer { font-size: 10px; max-width: 540px; width: 90%; margin: 0 auto; color: #929292; text-align: center; font-family: Helvetica;}
+    .right_link_list {padding-left: 20px;}
+    .top_logos_ipl{text-align: center;}
+    .bottom_logos{text-align: center;}
+    .top_logos{margin-top: 30px;}
+    .bottom_logos{margin-top: 30px;}
+    .sports_partners_wrapper { border-bottom: 1px solid #828282; padding-bottom: 30px;}
+    .member-section{display: block;}
+    .membership{padding-left: 0px;float: left; width: 50%;}
+    
+    .footer_bottom ul li:last-child{clear:none;width:auto;margin-top:0}
+    .footer_inner{margin-bottom: 0;}
+    .membership h3{margin-bottom: 14px;}
+      .mb44{margin-bottom: 30px;}
+    /* footer css ends here */
+
+    @media (max-width:900px){
+      .col1{padding-left: 15px;}
+      .left_col1{margin-bottom: 40px}
+      .sports_partners ul li span{margin-right: 10px;}
+    }
+
+    @media (max-width:768px){
+      /*footer css*/
+      
+      .footer_inner { grid-template-columns: 2fr 1fr; }
+      .col2 { text-align: center; grid-template-columns: 1fr;}
+      .membership, .sports_partners {padding-left: 0px; }
+      .vivo_ipl_footer{ width: 68px; }
+      .bcci_footer{ width: 50px; }
+      .footer_icc_1{ width: 80px; }
+      .footer_nba{ width: 50px; }
+      .footer_pkl{ width: 49px; }
+      .La_Liga_footer_new{ width: 30px; }
+      .footer_fih_1{ width: 38px; }
+      .footer_hero_new{ width: 31px; }
+      .footer_bbl{ width: 35px; }
+      .nzc_footer{ width: 42px; }
+      .footer_cpl{ width: 63px; }
+      .supersmash_footer{ width: 50px; }
+      .abu_dhabi_footer_new1{ width: 44px; }
+      .MSL_footer_new{ width: 50px; }
+      .ECL_footer{ width: 50px; }
+      .t20_mumbai_logo_new1{ width: 56px; }
+      .kpl_footer{ width: 50px; }
+      .sports_partners ul li{margin-right: 20px;}
+      .sports_partners ul li img{width: 100%;}
+      /*footer css*/
+      .m-schedule table{width: 500px;}
+      .career-stats td{padding: 7px;}
+    }
+
+    @media (max-width:766px){
+      /*mobile_footer*/
+      #footer_second_ul{margin-left: 0px;}
+      .footer_inner{grid-template-columns: 1fr;padding-bottom: 0px;}
+      .footer_top{padding-top: 20px;}
+      .footer_logo img{margin: 0 auto;}
+      .col1{border-right: 0px;}
+      .footer_social{text-align: center;}
+      .left_col1{border-bottom: 1px solid #828282; padding-bottom: 23px; margin-bottom: 13px; text-align: center;}
+      .right_col1{text-align: center; border-bottom: 1px solid #828282; padding-bottom: 13px; margin-bottom: 13px;}
+      .col2{text-align: center;}
+      .membership h3, .our_apps h3, .sports_partners h3{text-align: center; margin-bottom: 14px;}
+      .membership,  .sports_partners{margin-bottom: 40px;}
+      .sports_partners{padding-left: 0px;}
+      .our_apps{text-align: center; padding-left: 0px;}
+      .app_list li{text-align: center; float: left; margin-right: 10px; }
+      .app_list li:last-child{margin-right: 0px;}
+      .app_list{display: inline-block;}
+      .footer_bottom{text-align: center;}
+      .footer_bottom ul li a{padding-right: 10px; margin-right: 10px;}
+      .footer_bottom ul li:nth-child(3) a {padding-right: 0px;border-right: 0px;margin-right: 0px;}
+      .footer_bottom ul li:last-child { clear: both; width: 100%; margin-top: 20px;}
+      .more_link{display: block;}
+      .col2{grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));}
+      .membership{padding-left: 0px;}
+      .col1{padding-left: 0px;}
+      #breadcrumb{padding: 0 20px; line-height: 23px;}
+      .cricket-player_container ul{grid-template-columns:1fr 1fr}
+      .membership{width:50% !important;float: left;}
+      .mb44{margin-bottom: 0px !important;}
+      .membership{margin-bottom: 10px !important;}
+      .footer_bottom ul li:last-child{clear:none; width: auto;margin-top:0;}
+      /*mobile footer*/
+    }

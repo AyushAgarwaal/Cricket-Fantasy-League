@@ -1,0 +1,91 @@
+.navbar {
+   background-color: #092bf2b0;;
+    top: 0px;
+    overflow: auto;
+    /* height: 135px; */
+    display: flex;
+    align-items: right;
+    padding: 4px 24px;
+    flex-direction: row-reverse;
+    margin: -8px -8px;
+
+}
+
+/* Style for the links inside the navigation bar */
+.navbar a {
+    color: white;
+    text-align: right;
+    text-decoration: none;
+    font-size: 26px;
+    margin: 11px 13px;
+}
+
+/* Change the color of the links on hover */
+.navbar a:hover {
+    background: transparent;
+    color: aqua;
+}
+
+video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 63px;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+p {
+   
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 4em;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #fff,rgb(233, 23, 244),#fff);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    animation: animate 5s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    
+}
+
+.heading{
+
+}
+
+.Bg{
+	
+}
+
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+footer {
+  background-color: #092bf2b0;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.2em;
+}
+

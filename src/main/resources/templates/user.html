@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>User</title>
+	<link rel="stylesheet" type="text/css" href="/CSS/new_user.css">
+	<link rel="stylesheet" href="/CSS/style.css">
+	<link rel="stylesheet" href="/CSS/cards.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+	<header>
+		<img src="./images/logo.jpg" alt="" style=" border-radius: 50%;height: 45px;width: 90px" align="left">
+		<nav>
+			<div class="container red topBotomBordersOut">
+				<b class="bold"><u>User Dashboard</u></b>
+				<a><b>₹</b><b th:text=${wallet}></b>
+					</b><img class="wallet" src="/images/istockphoto.png" alt="wallet"></a>
+				<a href="userprofile"><b>PROFILE</b></a>
+
+
+				<a href="index"><b>LOGOUT</b></a>
+			</div>
+
+
+
+
+		</nav>
+	</header>
+
+	<ul class="card-list">
+
+		<li class="card">
+			<a class="card-image" href="userSelection" target=""
+				style="background-image: url(/images/CODM-TOURNAMENT-002.jpg)">
+
+			</a>
+
+			<h2>Tournament</h2>
+			<b>
+				<p>Select to play which Tournament</p>
+			</b>
+
+		</li>
+
+
+
+		<li class="card">
+			<a class="card-image" href="leaderboard" target="" style="background-image: url(/images/badge1.jpg)">
+
+			</a>
+
+			<h2>LeaderBoard</h2>
+			<b>
+				<p>Check your current position</p>
+			</b>
+
+		</li>
+		<li class="card">
+			<a class="card-image" href="result" target=""
+				style="background-image: url(/images/result-3236285_1920.jpg)">
+			</a>
+			<h2>Results</h2>
+			<b>
+				<p>Select to See Result</p>
+			</b>
+		</li>
+
+	</ul>
+
+
+</body>
+
+</html>

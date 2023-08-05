@@ -1,0 +1,212 @@
+body {
+	background-image: url("/images/freepick.jpg");
+	background-size:100% 106%;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+* {
+	 font-family: cursive;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+	width: 100%;
+	padding: 2px;
+	margin: -2px 0 22px -1px;
+	display: flex;
+	border: none;
+	background: #CAD7E4;
+	border-radius: 6px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/* hr {
+ border: 1px solid #F1F1F1;
+ margin-bottom: 25px;
+} */
+/* Set a style for all buttons */
+/* button {
+ background-color: #04AA6D;
+ color: rgb(27, 26, 26);
+ padding: 14px 20px;
+ margin: 8px 0;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+ opacity: 0.9;
+} */
+.btn:link,
+.btn:visited {
+	justify-content: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 12px 26px;
+	display: inline-block;
+	border-radius: 139px;
+	transition: all 0.2s;
+	color: #2196F3;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgb(0, 255, 255);
+}
+
+.btn-animated {
+	animation: moveInBottom 5s ease-out;
+	animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+/* Add padding to container elements */
+.container {
+	padding: 20px;
+}
+
+:root {
+	--primary-c: #2196F3;
+	/* --secondary-c: #B2D7F5; */
+	--white: #FDFBFB;
+	--text: #082943;
+	--bg: var(--primary-c);
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 50px;
+	margin: 0;
+}
+
+li {
+	display: block;
+	position: relative;
+	padding: 22px 92px;
+}
+
+h2 {
+	margin: 10px 0;
+	font-weight: 900;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 10px;
+	background: var(--white);
+	width: 300px;
+	
+	border-radius: 10px;
+	box-shadow:0 0px 25px #fff;
+	
+}
+
+.check {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	border-radius: 50%;
+	transition: transform .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+input[type=radio] {
+	position: absolute;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	font-weight: 100;
+}
+
+input#one~.check {
+	transform: translate(-50px, -25px);
+	background: var(--secondary-c);
+}
+
+input#two~.check {
+	transform: translate(-50px, -83px);
+	background: var(--primary-c);
+	box-shadow: 0 6px 12px rgba(33, 150, 243, 0.35);
+}
+
+/* Radio Input #1 */
+input#one:checked~.check {
+	transform: translate(-50px, 33px);
+}
+
+/* Radio Input #2 */
+input#two:checked~.check {
+	transform: translate(-50px, -25px);
+}
+
+.animate-charcter {
+	/* text-transform: uppercase; */
+	background-image: linear-gradient(-225deg,
+			#231557 0%,
+			#44107A 29%,
+			#FF1361 67%,
+			#FFF800 100%);
+	background-size: auto auto;
+	background-clip: border-box;
+	background-size: 200% auto;
+	color: #fff;
+	background-clip: text;
+	/* text-fill-color: transparent; */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textclip 2s linear infinite;
+	display: flex;
+	font-size: 40px;
+}
+
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+
+fieldset {
+	display: block;
+	padding-block-start: 0.15em;
+	padding-inline-start: 0.75em;
+	padding-inline-end: -0.5em;
+	padding-block-end: 0.675em;
+	min-inline-size: min-content;
+	border-width: 0px;
+	border-style: groove;
+}
+
+.oval {
+	border-radius: 50%;
+	height: 35px;
+	width: 70px;
+}
+
+b {
+    font-weight: bold;
+    font-family: cursive;
+}

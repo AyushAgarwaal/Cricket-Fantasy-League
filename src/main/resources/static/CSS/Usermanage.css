@@ -1,0 +1,42 @@
+.tablediv {
+	width: 100%;
+	padding: 60px 335px;
+}
+
+/* CSS for table styling */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	text-align: center;
+	padding: 8px;
+	color: white;
+	font-weight: bold;
+
+}
+
+tr:nth-child(even) {}
+
+th {
+	background-color: #4c7baf;
+	color: white;
+	padding: 6px 32px;
+	font-weight: bold;
+}
+
+/* CSS for delete button styling */
+.delete-btn {
+	background-color: red;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.delete-btn:hover {
+	background-color: darkred;
+}

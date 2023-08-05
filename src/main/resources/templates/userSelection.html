@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Select Tournaments, Matches and Teams</title>
+<link rel="stylesheet" type="text/css" href="/CSS/userSelection.css">
+ <!-- Add this to the head section of your HTML file -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+       
+    
+</head>
+
+<body>
+
+   
+    <div class="container">
+    <div class="navbar">
+  <a href="user">Home</a>
+   <a href="userSelection">Refresh</a>
+</div>
+        <h1>Select Tournaments, Matches and Teams</h1>
+        <form th:action=@{/userSelection} th:object="${data}"  id="userSelectionForm" method="post">
+            <label for="tournament">Select a tournament:</label>
+            <select  id="tournament" name="tournament" onchange="selects(this)">
+				<option value="tournament">Select a tournament:</option>
+				<option th:each="tour:${tour}" th:text="${tour.name}"  th:value="${tour.tour_id}"></option>
+				
+			</select>
+        </form>
+        
+        <form id="matchForm" class="hidden">
+            <label for="match">Select a match:</label>
+            <select id="match" name="matchname" onchange="selectsTeams(this)">
+				<option value="">Select a match:</option>
+				<option th:each="match:${match}" th:text="${match.name}"  th:value="${match.tour_id}"></option>
+				
+			</select>
+    
+    
+        </form>
+        <form id="teamForm" class="hidden">
+            <label for="team">Select a team:</label>
+            <select id="team" name="team">
+				<option value="team" >Select a team:</option>
+				<option th:each="team:${team}" th:text="${team.name}"  th:value="${team.id}" ></option>
+				
+				
+                </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+     <script th:inline="javascript">
+    
+        // Get the tournament select element
+        var tournamentSelect = document.getElementById('tournament');
+
+        // Get the match form and team form elements
+        var matchForm = document.getElementById('matchForm');
+        var teamForm = document.getElementById('teamForm');
+
+        // When the tournament select element changes, show the match form
+        tournamentSelect.addEventListener('change', function() {
+            if (tournamentSelect.value !== '') {
+                matchForm.classList.remove('hidden');
+            } else {
+                matchForm.classList.add('hidden');
+                teamForm.classList.add('hidden');
+            }
+        });
+
+        // When the match form is submitted, show the team form
+        matchForm.addEventListener('change', function(e) {
+            e.preventDefault();
+            if (match.value !== '') {
+                teamForm.classList.remove('hidden');
+            } else {
+                teamForm.classList.add('hidden');
+            }
+        })
+        
+       //for match dropdown
+function selects(dropdown)
+{
+    var tournamentSelected = dropdown.options[dropdown.selectedIndex].value;
+   console.log(tournamentSelected);
+   var getUrl = window.location;
+   var baseUrl = getUrl.protocol + "//" + getUrl.host;
+   var options ='';		
+   console.log(baseUrl + "/matchesByTournament?tournament=" + tournamentSelected);
+   $.ajax({
+       type: "GET",
+       url:baseUrl + "/matchesByTournament?tournament=" + tournamentSelected,
+          
+       success: function(data) {
+           // Handle success response here
+           
+           if(data.length>0){
+        	   $(data).each(function (index){
+        		   options += '<option value="' + data[index].id + '" selected="selected">' + data[index].name + '</option>';
+        	   });
+           }
+           
+           $('#match').append(options);
+           $('#match').trigger("chosen:updated");
+           $('#match').trigger("liszt:updated");
+                                  
+          
+       },
+       error: function(xhr, status, error) {
+           // Handle error response here
+       }
+   });
+} 
+        
+        //for teams dropdown
+        function selectsTeams(dropdown)
+        {
+            var teamSelected = dropdown.options[dropdown.selectedIndex].value;
+           console.log(teamSelected);
+            var getUrl = window.location;
+           var baseUrl = getUrl.protocol + "//" + getUrl.host;
+           var options ='';		
+           console.log(baseUrl + "/teamsByMatches?match=" + teamSelected);
+           $.ajax({
+               type: "GET",
+               url:baseUrl + "/teamsByMatches?match=" + teamSelected,
+                  
+               success: function(data) {
+                   // Handle success response here
+                   console.log(data);
+                    if(data.length>0){
+                	   $(data).each(function (index){
+                		   options += '<option value="' + data[index].id + '" selected="selected">' + data[index].name + '</option>';
+                	   });
+                   }
+                   
+                   $('#team').append(options);
+                   $('#team').trigger("chosen:updated");
+                   $('#team').trigger("liszt:updated");
+                                           
+                  
+               },
+               error: function(xhr, status, error) {
+                   // Handle error response here
+               }
+           }); 
+        } 
+</script >
+       
+</body>
+
+</html>

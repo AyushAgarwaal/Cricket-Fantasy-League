@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign-up Page</title>
+	<link rel="icon" type="image/jpg" sizes="114x114" href="logo.jpg">
+	<!-- <link rel="stylesheet" href="formstyle.css"> -->
+	<link rel="stylesheet" href="/CSS/register.css">
+</head>
+
+<body>
+	<header><img src="./images/logo.jpg" alt="" style=" border-radius: 50%;height: 45px;width: 90px" align="right"></header>
+
+	<center>
+		<h1 class="animate-charcter">Sign-up Page</h1>
+	</center>
+	<center>
+		<form th:action="@{/register}" th:object="${user}" method="post" class="formP" autocomplete="off">
+			<div th:if="${exist}">
+				<p class="warning">User Exist with this email already!!!</p>
+			</div>
+			<div th:if="${success}">
+				<p class="success">User registration successful!</p>
+			</div>
+			<div class="card">
+				<p class="para"><i>Kindly fill in this form to register.</i></p>
+				<!-- label and input for username -->
+				<b>Username:</b>
+				<input type="text" id="user_name" name="user_name" th:field="*{user_name}">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('user_name')}" th:errors="*{user_name}"></div>
+				<!-- label and input for email -->
+				<b>Email:</b>
+				<input type="text" id="user_email" name="user_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+					th:field="*{user_email}">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('user_email')}" th:errors="*{user_email}">
+				</div>
+				<b>Password:</b>
+				<input type="password" id="default" name="password" value="" autocomplete="new-password" minlength="6"
+					placeholder="6+ characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+				<div align="left" class="pwd"><input type="checkbox" onclick="myFunction()">Show Password
+				</div>
+				<script>
+					function myFunction() {
+						var x = document.getElementById("default");
+						if (x.type === "password") {
+							x.type = "text";
+						} else {
+							x.type = "password";
+						}
+					}
+				</script>
+				<!-- </div>
+ <div class="card"> -->
+				<!-- <h2>Radio Buttons</h2>
+ -->
+				<br>
+				<center><label for="username"><b>Select Role:</b></label></center>
+				<ul>
+					<li>
+						<input type="radio" name="user_type" id="one" value="admin" checked />
+						<label for="one"><b>Admin</b></label>
+						<div class="check"></div>
+					</li>
+					<li>
+						<input type="radio" name="user_type" id="two" value="user" />
+						<label for="two"><b>User</b></label>
+						<div class="check"></div>
+					</li>
+				</ul>
+				<fieldset border="none"><input type="checkbox" id="user_agree_to_terms" name="user[agreetoterms]" required>
+					</input>
+					<label for="user_agree_to_terms">By creating an account you agree to our <a
+							href="terms">Terms of Service</a></label>
+				</fieldset>
+				<div class="text-box">
+					<a th:href="@{/register(success=${success})}"><input type="submit" value="Sign-up"
+							class="btn btn-white btn-animate">
+					</a>
+				</div>
+				<p> <b>Already have an account? <a href="index">Log in</a>.</b> </p>
+			</div>
+		</form>
+	</center>
+	
+</body>
+
+</html>

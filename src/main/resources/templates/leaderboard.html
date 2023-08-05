@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/lead.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="navbar">
+    <a class="active" href="#home">Home</a>
+    <a href="#refresh">Refresh</a>
+</div>
+<div class="container">
+    <h1>Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Winning Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${user}">
+                <td th:text="${user.user_id}"></td>
+                <td th:text="${user.user_email}"></td>
+                <td th:text="${user.user_name}"></td>
+                <td th:text="${user.winningPrize}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
